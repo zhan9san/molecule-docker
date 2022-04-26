@@ -20,7 +20,7 @@
 
     - name: create temporary dockerfiles
       ansible.builtin.tempfile:
-        prefix: "molecule-dockerfile-{{ item.image }}"
+        prefix: "molecule-dockerfile-{{ item.image | replace('/', '-') }}"
         suffix: build
       register: temp_dockerfiles
       with_items: "{{ platforms }}"
