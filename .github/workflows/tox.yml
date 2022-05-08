@@ -100,6 +100,7 @@ jobs:
         run: |
           docker version
           docker info
+          ansible-galaxy collection install community.docker
           python -m pip install -U "pip>=21.2.4" "tox>=3.24.2"
       - name: Run tox -e ${{ matrix.tox_env }}
         run: |
